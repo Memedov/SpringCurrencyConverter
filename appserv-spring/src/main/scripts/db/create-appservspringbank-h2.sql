@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS `CONVERSION`
+
+--
+-- Create for table `CONVERSIONINFO`
+--
+CREATE TABLE `CONVERSION`
+(
+  `CON_FROMTO` varchar(50) NOT NULL,
+  `CON_RATE`   double(50
+) NOT NULL,
+  PRIMARY KEY
+(
+  `CON_FROMTO`
+)
+  );

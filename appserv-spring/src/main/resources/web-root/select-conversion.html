@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{resources/fragments/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main layout:fragment="content">
+
+    <section>
+        <h1>Currency Converter</h1>
+        <p class="info">Please select currency details</p>
+        <form method="post" th:action="@{http://localhost:8080/select-conversion}" th:object="${findConversionForm}">
+            Amount:<br>
+            <input type="text" th:field="*{number}">
+            <br>
+            <p>From</p>
+            <select name="from" th:field="*{from}">
+                <option value="SEK">SEK</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+                <option value="CNY">CNY</option>
+            </select>
+            <br><br>
+            <p>To</p>
+            <select name="to" th:field="*{to}">
+                <option value="SEK">SEK</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+                <option value="CNY">CNY</option>
+            </select>
+            <br><br>
+            <input type="submit" value="Convert">
+        </form>
+    </section>
+
+    <section>
+        <h1>Conversion Result</h1>
+        <p class="form" th:object="${findConversionForm}">
+            Amount: <span th:text="*{number}">Missing</span> <span th:text="*{from}"></span>,
+            Result: <span th:text="*{conversionResult}">Missing</span>
+        </p>
+    </section>
+</main>
+</body>
+</html>
